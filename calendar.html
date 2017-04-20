@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="text" id="date-input" placeholder="Pick a date">
+  <div id="calendar"></div>
+  <script src="calendar.js"></script>
+
+  <script>
+    //
+    var calendar = new Calendar({
+      onUpdate: function(date){},
+      onSelected: function(date){
+        document.getElementById('date-input').value = date.toString();
+        console.log(calendar.today);
+        calendar.hide();
+      }
+    });
+    /*
+    *
+    *
+    *
+    */
+    calendar.hide();
+    /*
+    *
+    *
+    *
+    */
+    var parent = document.getElementById('calendar');
+    parent.appendChild(calendar.create());
+    var input = document.getElementById('date-input');
+    input.addEventListener('focus', function(){ calendar.show() });
+    //
+  </script>
+  <style>
+    .calendar > button{
+      width: 14.285%;
+      height: 50px;
+    }
+    .calendar > .month-select {
+      position: relative;
+    }
+    .calendar > .month-select h3 {
+      text-align: center;
+    }
+    .calendar > .month-select button {
+      position: absolute;
+      top: 0;
+    }
+    .calendar > .month-select button:first-child {
+      left: 0;
+    }
+    .calendar > .month-select button:last-child {
+      right: 0;
+    }
+    .calendar > .month-select span {
+      width: 14.285%;
+      height: 30px;
+      display: inline-block;
+      text-align: center;
+    }
+    .today{
+      background: blue;
+      color: white;
+    }
+    .different-month {
+      color: #cccccc;
+      background: white;
+    }
+    input {
+      padding: 20px;
+      width: 200px;
+      font-size: 16px;
+    }
+  </style>
+
+</body>
+</html>

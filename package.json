@@ -1,0 +1,7 @@
+{
+  "name": "datepicker",
+  "version": "1.0.0",
+  "description": "A date picker",
+  "main": "index.js",
+  "license": "MIT"
+}
